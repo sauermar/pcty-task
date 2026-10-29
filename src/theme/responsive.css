@@ -1,0 +1,256 @@
+/* src/theme/responsive.css */
+
+/* ==========================================================================
+   Responsive visibility utilities
+   ========================================================================== */
+@media (max-width: 767px) {
+  .tablet-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Shared app shell and tablet layout
+   ========================================================================== */
+.responsive-app-shell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--timeoff-shell-bg);
+}
+
+.tablet-sidebar-nav {
+  width: 280px;
+  min-width: 280px;
+  height: 100%;
+  background: var(--timeoff-surface);
+  border-right: 1px solid var(--timeoff-border-strong);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+.tablet-sidebar-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ion-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 24px;
+  border-bottom: 1px solid var(--timeoff-border-subtle);
+}
+
+.tablet-nav-list {
+  list-style: none;
+  padding: 16px 0;
+  margin: 0;
+  flex: 1;
+}
+
+.tablet-nav-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #495057;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tablet-nav-item:hover {
+  background-color: var(--timeoff-surface-muted);
+}
+
+.tablet-nav-item.active {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.1);
+  color: var(--ion-color-primary);
+  font-weight: 700;
+}
+
+.tablet-nav-item .nav-label {
+  flex: 1;
+  text-align: left;
+}
+
+.tablet-nav-item ion-badge {
+  margin-left: auto;
+}
+
+.tablet-main-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.tablet-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 28px 36px 20px;
+}
+
+.tablet-top-bar .action-button {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.tablet-content-body {
+  padding: 0 36px 36px;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ==========================================================================
+   Modal sizing
+   ========================================================================== */
+@media (min-width: 768px) {
+  ion-modal.responsive-modal {
+    --width: 520px;
+    --height: 560px !important;
+    --max-height: 560px !important;
+    --border-radius: 20px;
+    --box-shadow: 0 20px 40px var(--timeoff-shadow-strong);
+  }
+}
+
+@media (max-width: 767px) {
+  ion-modal.responsive-modal {
+    --height: 85vh;
+  }
+}
+
+/* ==========================================================================
+   Supervisor master/detail layout (consolidated breakpoint behavior)
+   ========================================================================== */
+.supervisor-split-container {
+  display: flex;
+  gap: 24px;
+  padding: 0 16px 24px;
+  height: 100%;
+}
+
+.supervisor-master-col {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.supervisor-detail-col {
+  display: none !important;
+}
+
+.review-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .supervisor-split-container {
+    padding: 0 36px 36px;
+    height: calc(100vh - 110px);
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1183px) {
+  .supervisor-split-container {
+    display: flex;
+    gap: 24px;
+    padding: 0 36px 36px;
+    height: calc(100vh - 110px);
+    overflow: hidden;
+  }
+
+  .supervisor-master-col {
+    width: 400px;
+    min-width: 360px;
+    padding-right: 8px;
+    overflow-y: auto;
+  }
+
+  .supervisor-detail-col {
+    display: block !important;
+    flex: 1;
+    overflow-y: auto;
+    background: var(--timeoff-surface);
+    border-radius: 20px;
+    border: 1px solid var(--timeoff-border-strong);
+    box-shadow: 0 4px 20px var(--timeoff-shadow-soft);
+    padding: 28px 32px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .review-btn-wrapper {
+    display: none !important;
+  }
+}
+
+.master-item-wrapper {
+  cursor: pointer;
+  border-radius: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 12px;
+}
+
+.master-item-wrapper:hover {
+  transform: translateY(-1px);
+}
+
+.master-item-wrapper.selected {
+  box-shadow: none !important;
+}
+
+.master-item-wrapper ion-card {
+  margin: 0 !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--timeoff-border-subtle);
+}
+
+.master-item-wrapper.selected ion-card {
+  --background: var(--timeoff-selection-soft) !important;
+  background: var(--timeoff-selection-soft) !important;
+  border: 1px solid var(--timeoff-selection-border) !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.12) !important;
+}
+
+@media (max-width: 767px) {
+  .supervisor-split-container {
+    display: block;
+    padding: 0 16px 24px;
+  }
+
+  .supervisor-detail-col {
+    display: none;
+  }
+}

@@ -1,0 +1,41 @@
+import type { TimeOffRequest } from '../features/time-off/types';
+
+export const initialMockRequests: TimeOffRequest[] = [
+  {
+    id: 'req-1',
+    employeeId: 'emp-001',
+    employeeName: 'Marketa Sauerova',
+    type: 'vacation',
+    startDate: '2026-11-10',
+    endDate: '2026-11-15',
+    notes: 'Family trip to Oregon coast.',
+    status: 'pending',
+    createdAt: '2026-10-25T08:30:00.000Z',
+  },
+  {
+    id: 'req-2',
+    employeeId: 'emp-001',
+    employeeName: 'Marketa Sauerova',
+    type: 'sick',
+    startDate: '2026-10-02',
+    endDate: '2026-10-03',
+    notes: 'Severe migraine recovery.',
+    status: 'approved',
+    supervisorNote: 'Get well soon!',
+    createdAt: '2026-10-01T14:15:00.000Z',
+    reviewedAt: '2026-10-01T15:00:00.000Z',
+  },
+  {
+    id: 'req-3',
+    employeeId: 'emp-002',
+    employeeName: 'Marcus Cole',
+    type: 'personal',
+    startDate: '2026-10-20',
+    endDate: '2026-10-21',
+    notes: 'Apartment relocation.',
+    status: 'rejected',
+    supervisorNote: 'Overlapping on-call coverage conflict.',
+    createdAt: '2026-10-15T09:00:00.000Z',
+    reviewedAt: '2026-10-16T11:20:00.000Z',
+  },
+];
